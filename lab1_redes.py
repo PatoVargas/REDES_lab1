@@ -1,12 +1,12 @@
-import numpy as np
-from scipy.io.wavfile import read,write
-import matplotlib.pyplot as plt
-from funciones import *
-
 """
 Codigo elaborado por Patricio Vargas Pino, rut : 18455204-3 y que
 utiliza como base el ejemplo presentado por Maximiliano Perez en la ayudantia.
 """
+#Importaciones
+import numpy as np
+from scipy.io.wavfile import read,write
+import matplotlib.pyplot as plt
+from funciones import *
 
 """
 Entrada: audio: beacon.wav.
@@ -15,25 +15,31 @@ Funcion: las siguientes lineas de codigo imprimen el grafico que representan
 los datos del audio y sus respectivas amplitudes.
 """
 rate,info=read("beacon.wav") 
-plt.rcParams['agg.path.chunksize'] = 100000
-plt.title('Grafico datos versus amplitud')
-plt.xlabel('tiempo')
+plt.rcParams['agg.path.chunksize'] = 100000 #se ajusta para visualizar los datos
+
+"""
+Primer gráfico Tiempo vs amplitu
+"""
+plt.title('Amplitud vs Tiempo')
+plt.xlabel('tiempo (s)')
 plt.ylabel('amplitud')
-
 Tiempo=np.linspace(0, len(info)/rate, num=len(info))
-
 plt.plot(Tiempo,info)
-plt.show() #primer grafico
+plt.show() 
 
-z = np.fft.fft2(info)
-plt.plot(z)
-plt.show()
+"""
+Grafico de la transformada de fourier de la señal de entrada
+"""
+signal =info[:,1]
+transformada = transformadaFourier(signal,rate)
+show()
 
-plt.plot(np.fft.ifft2(z))
-plt.show()
+"""
+Grafico de la transformada inversa de fourier
+"""
+transformadaInversaFouerier(transformada,rate)
+show()
 
-print("El rate es:")
-print(rate)
-print("Tiempo total:")
-print(info.size/rate)
+
+
 

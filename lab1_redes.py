@@ -48,14 +48,3 @@ listaAuxiliar = np.array(reducirEspectro(transformadainversa,indice))
 transformadainversa_15 = transformadaInversaFouerier(listaAuxiliar,rate)
 show()
 
-print("el maximo es:")
-print(maximo)
-print("el indice es")
-print(indice)
-print("el largo1 es")
-print(transformadainversa.size)
-print("el largo2 es")
-#listaAuxiliar2 = np.array(listaAuxiliar)
-print(listaAuxiliar.size)
-
-

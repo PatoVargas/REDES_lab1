@@ -15,7 +15,7 @@ def transformadaFourier(signal,frecuencia):
 	frq = k/T #Se asigna una frecuencia a cada elemento de k
 	frq = frq[0:x] # se limita el rango del arrreglo frq
 
-	Y = fft(signal)/largo_n #Transformada de fourier de la señal
+	Y = fft(signal) #Transformada de fourier de la señal
 	Z =Y #Se guarda para retornar
 	Y = Y[0:x]    #Se acota solo al conjunto de interes
 	 
@@ -28,7 +28,34 @@ def transformadaFourier(signal,frecuencia):
 def transformadaInversaFouerier(signal,frecuencia):
 	W = np.fft.ifft(signal)
 	Tiempo=np.linspace(0, len(signal)/frecuencia, num=len(signal))
-	plot(Tiempo,W,'g')
+	plot(Tiempo,W,'r')
 	title('Transformada inversa de fourier a la transformada de fourier')
-	xlabel('Tiempo')
-	ylabel('Amplitud')
+	xlabel('Tiempo (s)')
+	ylabel('f(t)')
+	return W
+
+def buscarMaximo(signal):
+	maximo = signal.max()
+	return maximo
+
+
+def buscarIndice(signal,maximo):
+	contador = 0
+	for i in signal:
+		if i == maximo:
+			return contador
+		else:
+			contador =contador+1
+
+def reducirEspectro(signal,indice):
+	contador = 0
+	quinceporciento= int(indice*0.15)
+	listaAuxiliar = []
+	for i in signal:
+		contador =contador+1
+		if contador >= indice-quinceporciento:
+			if contador <= indice+quinceporciento:
+				contador = contador
+		else:
+			listaAuxiliar.append(i)
+	return listaAuxiliar

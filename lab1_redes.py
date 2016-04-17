@@ -21,8 +21,8 @@ plt.rcParams['agg.path.chunksize'] = 100000 #se ajusta para visualizar los datos
 Primer gráfico Tiempo vs amplitu
 """
 plt.title('Amplitud vs Tiempo')
-plt.xlabel('tiempo (s)')
-plt.ylabel('amplitud')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('f(t)')
 Tiempo=np.linspace(0, len(info)/rate, num=len(info))
 plt.plot(Tiempo,info)
 plt.show() 
@@ -33,13 +33,29 @@ Grafico de la transformada de fourier de la señal de entrada
 signal =info[:,1]
 transformada = transformadaFourier(signal,rate)
 show()
-
 """
-Grafico de la transformada inversa de fourier
+Grafico de la transformada inversa de fourier de la transfomada antes graficada
 """
-transformadaInversaFouerier(transformada,rate)
+transformadainversa = transformadaInversaFouerier(transformada,rate)
 show()
 
+"""
+Truncar la inversa en torno a la maxima con un margen del 15%
+"""
+maximo = buscarMaximo(transformadainversa)
+indice = buscarIndice(transformadainversa,maximo)
+listaAuxiliar = np.array(reducirEspectro(transformadainversa,indice))
+transformadainversa_15 = transformadaInversaFouerier(listaAuxiliar,rate)
+show()
 
+print("el maximo es:")
+print(maximo)
+print("el indice es")
+print(indice)
+print("el largo1 es")
+print(transformadainversa.size)
+print("el largo2 es")
+#listaAuxiliar2 = np.array(listaAuxiliar)
+print(listaAuxiliar.size)
 
 

@@ -36,7 +36,7 @@ show()
 """
 Grafico de la transformada inversa de fourier de la transfomada antes graficada
 """
-transformadainversa = transformadaInversaFouerier(transformada,rate)
+transformadainversa = transformadaInversaFourier(transformada,rate)
 show()
 
 """
@@ -45,7 +45,8 @@ Truncar la inversa en torno a la maxima con un margen del 15%
 maximo = buscarMaximo(transformadainversa)
 indice = buscarIndice(transformadainversa,maximo)
 listaAuxiliar = np.array(reducirEspectro(transformadainversa,indice))
-print(listaAuxiliar.size)
-transformadainversa_15 = transformadaInversaFouerier(listaAuxiliar,rate)
+graficarNuevoEspectro(listaAuxiliar)
+show()
+transformadainversa_15 = transformadaInversaFourier(listaAuxiliar,rate)
 show()
 

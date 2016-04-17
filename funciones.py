@@ -35,7 +35,7 @@ def transformadaInversaFourier(signal,frecuencia):
 	Tiempo=np.linspace(0, signal.size/frecuencia, num=signal.size) #arreglo para cambiar el eje x a tiempo
 	plot(Tiempo,W,'r') 
 	title('Transformada inversa de fourier a la transformada de fourier')
-	xlabel('Tiempo (s)')
+	xlabel('Tiempo')
 	ylabel('f(t)')
 	return W
 

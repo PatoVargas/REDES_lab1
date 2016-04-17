@@ -45,6 +45,7 @@ Truncar la inversa en torno a la maxima con un margen del 15%
 maximo = buscarMaximo(transformadainversa)
 indice = buscarIndice(transformadainversa,maximo)
 listaAuxiliar = np.array(reducirEspectro(transformadainversa,indice))
+print(listaAuxiliar.size)
 transformadainversa_15 = transformadaInversaFouerier(listaAuxiliar,rate)
 show()
 

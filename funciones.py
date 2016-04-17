@@ -55,7 +55,7 @@ def reducirEspectro(signal,indice):
 		contador =contador+1
 		if contador >= indice-quinceporciento:
 			if contador <= indice+quinceporciento:
-				contador = contador
+				listaAuxiliar.append(i)
 		else:
-			listaAuxiliar.append(i)
+			contador = contador
 	return listaAuxiliar

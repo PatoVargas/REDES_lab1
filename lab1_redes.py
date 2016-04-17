@@ -1,6 +1,8 @@
 """
 Codigo elaborado por Patricio Vargas Pino, rut : 18455204-3 y que
 utiliza como base el ejemplo presentado por Maximiliano Perez en la ayudantia.
+Los graficos se generan de forma automatica y se abren siempre y cuando se cierre 
+la pestaña de la imagen anterior.
 """
 #Importaciones
 import numpy as np

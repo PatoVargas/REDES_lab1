@@ -50,3 +50,6 @@ show()
 transformadainversa_15 = transformadaInversaFourier(listaAuxiliar,rate)
 show()
 
+print("La amplitud maxima es:")
+print(maximo)
+
